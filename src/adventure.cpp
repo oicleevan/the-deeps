@@ -53,6 +53,7 @@ Enemy E;
 
 void battle(string e_name)
 {
+    srand(time(0));
 
     E.name = e_name;
 
@@ -205,11 +206,12 @@ int main()
 
         cin >> input;
 
+        printf("\n");
+
         if(input == '1')
         {
             cout << "You decide to continue deeper into the dungeon..." << endl;
-        } else if(input == '2')
-        {
+        } else if(input == '2') {
             cout << "You exit the dungeon, leaving your sword behind..." << endl;
 
             sleep_for(3000ms);
