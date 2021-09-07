@@ -1,6 +1,6 @@
-# text-game
+# oicleevan's text based dungeon crawler
 
-A text-based adventure/dungeon crawler. Defeat enemies as you delve into a dungeon in search of treasure!
+A text-based adventure game/dungeon crawler. Defeat enemies as you delve into a dungeon in search of treasure!
 
 ## setup
 
