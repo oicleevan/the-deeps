@@ -11,6 +11,7 @@
 
 using namespace std;
 using std::this_thread::sleep_for;
+using std::chrono::milliseconds;
 
 void clrscr()
 {
@@ -18,7 +19,9 @@ void clrscr()
     return;
 }
 
-vector<string> enemies = {"Zombie", "Ghost", "Ghoul", "Skeleton", "Demon"};
+vector<string> enemies;
+enemies = {"Zombie", "Ghost", "Ghoul", "Skeleton", "Demon"};
+
 signed char input;
 int rand_enemy;
 
@@ -125,10 +128,10 @@ void battle(string e_name)
 
     if(Player.health <= 0) {
         cout << "You collapsed...";
-        sleep_for(1500ms);
+        sleep_for(milliseconds(1500));
         cout << "you died!" << endl;
 
-        sleep_for(2500ms);
+        sleep_for(milliseconds(2500));
 
         cout << "Thanks for playing!" << endl;
         exit(EXIT_SUCCESS);
@@ -177,7 +180,7 @@ int main()
 
     cout << "Text based adventure by oicleevan" << endl;
 
-    sleep_for(3000ms);
+    sleep_for(milliseconds(3000));
 
     Player.health = 50;
     Player.max_health = Player.health;
@@ -189,7 +192,7 @@ int main()
 
     while (true)
     {
-        sleep_for(2500ms);
+        sleep_for(chrono::milliseconds(2500));
         clrscr();
 
         srand(time(0));
@@ -199,10 +202,17 @@ int main()
 
         if(Player.enemies_defeated == 7)
         {
+            cout << R"(  ____                            _         _       _   _                 _ 
+                        / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
+                        | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
+                        | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
+                        \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
+                                        |___/                                                     )"
+            << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
 
-            sleep_for(3000ms);
+            sleep_for(milliseconds(3000));
             break;
         }
 
@@ -220,7 +230,7 @@ int main()
         } else if(input == '2') {
             cout << "You exit the dungeon, leaving your sword behind..." << endl;
 
-            sleep_for(3000ms);
+            sleep_for(milliseconds(3000));
             break;
         }
     }
