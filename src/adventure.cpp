@@ -12,7 +12,7 @@ void clrscr()
     return;
 }
 
-vector<string> enemies = {"Zombie", "Ghost", "Ghoul", "Skeleton", "Gravekeeper"};
+vector<string> enemies = {"Zombie", "Ghost", "Ghoul", "Skeleton", "Demon"};
 signed char input;
 int rand_enemy;
 
