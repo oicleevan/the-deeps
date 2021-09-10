@@ -1,3 +1,9 @@
+/*
+    adventure.cpp
+    Main file for my text-based-adventure.
+    -- oicleevan
+ */
+
 #include <iostream>
 #include <vector>
 #include <thread>
