@@ -8,6 +8,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+#include <fstream>
 
 using namespace std;
 using std::this_thread::sleep_for;
@@ -21,7 +22,7 @@ void clrscr()
 
 std::vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
-signed char input;
+unsigned char input;
 
 class Character
 {
@@ -55,6 +56,21 @@ class Enemy
 Character Player;
 
 Enemy E;
+
+void log_completion()
+{
+    ofstream logfile;
+
+    logfile.open("LOGS.txt");
+    logfile << "Congratulations!" << endl <<
+                "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
+                "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.health << " after defeating all of the enemies!\n" <<
+                "\nI owe you my thanks for playing my game!\no7\n";
+    
+    logfile.close();
+
+    return;
+}
 
 void battle(string e_name)
 {
@@ -211,6 +227,11 @@ int main()
             << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
+
+            sleep_for(milliseconds(3000));
+
+            log_completion();
+            cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
 
             sleep_for(milliseconds(3000));
             break;
