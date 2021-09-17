@@ -19,20 +19,16 @@ void clrscr()
     return;
 }
 
-vector<string> enemies;
-enemies = {"Zombie", "Ghost", "Ghoul", "Skeleton", "Demon"};
+std::vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
 signed char input;
-int rand_enemy;
 
 class Character
 {
     public:
         string name; // player name
-        
         int max_health; // max possible health
         int health; // current health
-        
         int level = 1; // experience level
         int lvl_amt = 50; // exp required to level up
         int exp = 0; // current exp
@@ -62,14 +58,13 @@ Enemy E;
 
 void battle(string e_name)
 {
-    srand(time(0));
-
     E.name = e_name;
 
     cout << "A " << E.name << " approaches!\n" << endl;
 
     while (E.health > 0)
     {
+        ATTACK:
         cout << "Your health: " << Player.health << endl <<
         E.name << "'s health: " << E.health << endl << endl;
 
@@ -89,7 +84,6 @@ void battle(string e_name)
             case '1': default:
             {
                 int atk_pwr = rand() % Player.max_atk_pwr + 1;
-                
                 E.health -= atk_pwr;
 
                 cout << "You attacked the " << E.name << " for " << atk_pwr << " damage." << endl;
@@ -104,14 +98,17 @@ void battle(string e_name)
                 } else {
                     cout << "You tried to run away, but failed!" << endl;
                 }
-                
                 break;
             case '3':
+              if(Player.potions > 0) {
                 Player.health = Player.max_health;
                 Player.potions--;
                 cout << "You used a potion and now have " << Player.health << " health." << endl <<
                 "You have " << Player.potions << " potions left.\n" << endl;
-
+              } else {
+                cout << "You are out of potions! You cannot use any more." << endl;
+                goto ATTACK;
+              }
                 break;
         }
 
@@ -151,6 +148,9 @@ void battle(string e_name)
     if(Player.exp >= Player.lvl_amt)
     {
         Player.level++;
+        Player.max_atk_pwr += 10;
+        Player.max_health += 5;
+        Player.health += 5;
         Player.exp -= 50;
         cout << "\nYou have leveled up!" << endl <<
         "You are now level " << Player.level << ", with " << Player.exp << " experience points." << endl;
@@ -177,6 +177,7 @@ void battle(string e_name)
 int main()
 {
     clrscr();
+    srand(time(0));
 
     cout << "Text based adventure by oicleevan" << endl;
 
@@ -195,14 +196,13 @@ int main()
         sleep_for(chrono::milliseconds(2500));
         clrscr();
 
-        srand(time(0));
-        rand_enemy = rand() % enemies.size() + 1;
+        int rand_enemy = rand() % enemies.size() + 1;
 
-        battle(enemies[1]);
+        battle(enemies[rand_enemy]);
 
         if(Player.enemies_defeated == 7)
         {
-            cout << R"(  ____                            _         _       _   _                 _ 
+            cout << R"(                         ____                            _         _       _   _                 _ 
                         / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
                         | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
                         | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
@@ -235,7 +235,7 @@ int main()
         }
     }
 
-    cout << "\n Thanks for playing!" << endl;
+    cout << "\nThanks for playing!" << endl;
 
     return 0;
 }
