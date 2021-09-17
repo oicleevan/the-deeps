@@ -6,6 +6,8 @@ A text-based adventure game/dungeon crawler written in pure C++. Defeat enemies 
 
 This game is text-based, and runs in a terminal. You play as a character who delves into a dungeon, where ghastly enemies hope to stop you from finding the hidden treasure.
 
+As you fight and defeat enemies, you grow stronger. But be weary, so do the enemies...;
+
 Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## setup
