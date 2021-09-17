@@ -12,9 +12,9 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
 
-You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). You can then launch it from a terminal with `./adventure_linux`.
+You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
 
-A binary distribution is included in the source code, at `bin/`. You can execute it in a terminal with `bin/adventure`. 
+A binary distribution is also included in the source code, at `bin/`. You can execute it in a terminal with `bin/adventure`. 
 
 ## building from source
 
