@@ -12,7 +12,7 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## setup
 
-To make the software, GNU make is required. Type `make` to compile the program. It places a binary in `./bin/`.
+To make the software, GNU make is required. Type `make` to compile the program. It places a binary in `bin/`.
 
 Currently only supports UNIX based systems. I don't have a Windows machine to test on, so if anyone wishes to port this to Windows, that would be great!
 
