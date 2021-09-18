@@ -20,7 +20,10 @@ void clrscr()
     return;
 }
 
-unsigned int gen_rand(int number) { return rand() % number + 1; } // Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
+// Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
+unsigned int gen_rand(int number) {
+    return rand() % number + 1;
+} 
 
 vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
@@ -124,7 +127,7 @@ void battle(string e_name)
                 cout << "You used a potion and now have " << Player.health << " health." << endl <<
                 "You have " << Player.potions << " potions left.\n" << endl;
               } else {
-                cout << "You are out of potions! You cannot use any more." << endl;
+                cout << "You are out of potions! You cannot use any more.\n" << endl;
                 goto ATTACK;
               }
                 break;
@@ -178,7 +181,7 @@ void battle(string e_name)
     if(chance_of_potion == 3)
     {
         Player.potions++;
-        cout << "You found a potion on the body of the " << E.name << "." << endl;
+        cout << "\nYou found a potion on the body of the " << E.name << "." << endl;
     }
 
     // make enemy more difficult
