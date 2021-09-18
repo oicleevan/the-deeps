@@ -1,2 +1,2 @@
 make:
-    g++ src/adventure.cpp -o bin/adventure -std=c++0x
+	c++ src/adventure.cpp -o bin/adventure

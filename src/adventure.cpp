@@ -20,6 +20,8 @@ void clrscr()
     return;
 }
 
+unsigned int gen_rand(int number) { return rand() % number + 1; } // Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
+
 vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
 unsigned char input;
@@ -99,7 +101,7 @@ void battle(string e_name)
         {
             case '1': default:
             {
-                int atk_pwr = rand() % Player.max_atk_pwr + 1;
+                int atk_pwr = gen_rand(Player.max_atk_pwr);
                 E.health -= atk_pwr;
 
                 cout << "You attacked the " << E.name << " for " << atk_pwr << " damage." << endl;
@@ -107,7 +109,7 @@ void battle(string e_name)
                 break;
             }
             case '2':
-                if(rand() % 4 == 1)
+                if(gen_rand(4) == 1)
                 {
                     cout << "You successfully ran away." << endl;
                     return;
@@ -130,7 +132,7 @@ void battle(string e_name)
 
         if(E.health >= 1)
         {
-            int enemy_atk = rand() % E.atk_dmg + 1;
+            int enemy_atk = gen_rand(E.atk_dmg);
             Player.health -= enemy_atk;
 
             cout << "The " << E.name << " attacked you for " << enemy_atk << " damage!\n" << endl;
@@ -156,7 +158,7 @@ void battle(string e_name)
 
     // give player exp
 
-    int exp_gained = rand() % Player.exp_gain + 1;
+    int exp_gained = gen_rand(Player.exp_gain);
     Player.exp += exp_gained;
 
     cout << "You gained " << exp_gained << " experience points. You now have " << Player.exp << " exp." << endl;
@@ -174,7 +176,7 @@ void battle(string e_name)
 
     // return potion potential
 
-    int chance_of_potion = rand() % 3 + 1;
+    int chance_of_potion = gen_rand(3);
     if(chance_of_potion == 3)
     {
         Player.potions++;
@@ -212,7 +214,7 @@ int main()
         sleep_for(chrono::milliseconds(2500));
         clrscr();
 
-        int rand_enemy = rand() % enemies.size() + 1;
+        int rand_enemy = gen_rand(enemies.size());
 
         battle(enemies[rand_enemy]);
 
