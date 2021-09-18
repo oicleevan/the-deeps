@@ -20,7 +20,7 @@ A binary distribution is also included in the source code, at `bin/`. You can ex
 
 To make the software, GNU make is required. Type `make` to compile the program. It places a binary in `bin/`.
 
-Currently only supports UNIX based systems. I don't have a Windows machine to test on, so if anyone wishes to port this to Windows, that would be great!
+Currently only supports Linux-based systems. I don't have a Windows or MacOS machine to test on, so if anyone wishes to port this, that would be great!
 
 # Thanks!
 

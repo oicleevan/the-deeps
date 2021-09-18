@@ -230,7 +230,7 @@ int main()
 
         battle(enemies[rand_enemy]);
 
-        if(Player.enemies_defeated == 7)
+        if(Player.enemies_defeated == 8)
         {
             cout << R"(                         ____                            _         _       _   _                 _ 
                         / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
@@ -242,13 +242,7 @@ int main()
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
 
-
-
-            sleep_for(milliseconds(3000));
-
-            log_completion();
-            cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
-
+            has_completed = true;
             sleep_for(milliseconds(3000));
             break;
         }
@@ -271,6 +265,11 @@ int main()
             break;
         }
     }
+
+    log_completion();
+    cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
+
+    sleep_for(milliseconds(3000));
 
     cout << "\nThanks for playing!" << endl;
 
