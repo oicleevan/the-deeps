@@ -1,4 +1,4 @@
-# oicleevan's text based dungeon crawler
+# THE DEEPS
 
 A text-based adventure game/dungeon crawler written in pure C++. Defeat enemies as you delve into a dungeon in search of treasure!
 
@@ -12,9 +12,11 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
 
-You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
+You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x adventure_linux`. 
 
-A binary distribution is also included in the source code, at `bin/`. You can execute it in a terminal with `bin/adventure`. 
+You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
+
+*A binary distribution is also included in the source code, at `bin/`. You can execute it in a terminal with `bin/adventure`.*
 
 ## building from source
 
