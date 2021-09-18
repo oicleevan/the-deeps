@@ -1,4 +1,4 @@
-# THE DEEPS
+[THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
 A text-based adventure game/dungeon crawler written in pure C++. Defeat enemies as you delve into a dungeon in search of treasure!
 
