@@ -20,7 +20,7 @@ void clrscr()
     return;
 }
 
-std::vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
+vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
 unsigned char input;
 
