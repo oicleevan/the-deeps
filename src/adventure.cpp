@@ -1,8 +1,8 @@
 /*
     adventure.cpp
-    Main file for my text-based-adventure.
+    Main file for my text adventure.
     -- oicleevan
- */
+*/
 
 #include <iostream>
 #include <vector>
@@ -21,11 +21,12 @@ void clrscr()
 }
 
 // Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
-unsigned int gen_rand(int number) {
+unsigned int gen_rand(int number)
+{
     return rand() % number + 1;
 }
 
-vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
+vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
 unsigned char input;
 bool has_completed = false;
@@ -66,7 +67,6 @@ Enemy E;
 void log_completion()
 {
     ofstream logfile;
-
     logfile.open("LOGS.txt");
 
     if(has_completed)
@@ -89,11 +89,24 @@ void log_completion()
     return;
 }
 
+void name_print(string str)
+{
+    if(str.compare("Zombie") == 0) { cout << "\"Brains... brains...\" \n\tYeah... it's a zombie..." << endl; return; }
+    else if(str.compare("Ghost") == 0) { cout << "A ghost appears from thin air, screeching and howling!" << endl; return;}
+    else if(str.compare("Ghoul") == 0) { cout << "A ghoul slurks through the halls..." << endl; return; }
+    else if(str.compare("Skeleton") == 0) { cout << "An inconspicuous pair of bones turns into an skeleton!" << endl; return; }
+    else if(str.compare("Demon") == 0) { cout << "A demon approaches, with an evil look on its face..." << endl; return; }
+    else if(str.compare("Corrupt Knight") == 0) { cout << "An evil looking knight unsheathes his sword!" << endl; return; }
+    else { cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); }
+}
+
 void battle(string e_name)
 {
     E.name = e_name;
 
-    cout << "A " << E.name << " approaches!\n" << endl;
+    name_print(E.name);
+
+    printf("\n");
 
     while (E.health > 0)
     {
@@ -209,7 +222,18 @@ int main()
     clrscr();
     srand(time(0));
 
-    cout << "Text based adventure by oicleevan" << endl;
+    cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
+      ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
+     /  /\       \  \:\       /  /:/_               /  /:/\:\      /  /:/_       /  /:/_       /  /::\     /  /:/_   
+    /  /:/        \__\:\     /  /:/ /\             /  /:/  \:\    /  /:/ /\     /  /:/ /\     /  /:/\:\   /  /:/ /\  
+   /  /:/     ___ /  /::\   /  /:/ /:/_           /__/:/ \__\:|  /  /:/ /:/_   /  /:/ /:/_   /  /:/~/:/  /  /:/ /::\ 
+  /  /::\    /__/\  /:/\:\ /__/:/ /:/ /\          \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/ /\ /__/:/ /:/  /__/:/ /:/\:\
+ /__/:/\:\   \  \:\/:/__\/ \  \:\/:/ /:/           \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/ /:/ \  \:\/:/   \  \:\/:/~/:/
+ \__\/  \:\   \  \::/       \  \::/ /:/             \  \:\/:/    \  \::/ /:/   \  \::/ /:/   \  \::/     \  \::/ /:/ 
+      \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
+       \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
+                 \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )"
+                << "\nby oicleevan" << endl;
 
     sleep_for(milliseconds(3000));
 
