@@ -61,7 +61,6 @@ class Enemy
 };
 
 Character Player;
-
 Enemy E;
 
 void log_completion()
@@ -89,22 +88,35 @@ void log_completion()
     return;
 }
 
-void name_print(string str)
+// Different text options differenciated based on what enemy is being confronted
+void name_diff(string str)
 {
-    if(str.compare("Zombie") == 0) { cout << "\"Brains... brains...\" \n\tYeah... it's a zombie..." << endl; return; }
-    else if(str.compare("Ghost") == 0) { cout << "A ghost appears from thin air, screeching and howling!" << endl; return;}
-    else if(str.compare("Ghoul") == 0) { cout << "A ghoul slurks through the halls..." << endl; return; }
-    else if(str.compare("Skeleton") == 0) { cout << "An inconspicuous pair of bones turns into an skeleton!" << endl; return; }
-    else if(str.compare("Demon") == 0) { cout << "A demon approaches, with an evil look on its face..." << endl; return; }
-    else if(str.compare("Corrupt Knight") == 0) { cout << "An evil looking knight unsheathes his sword!" << endl; return; }
-    else { cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); }
+    if(str.compare("Zombie") == 0) {
+        cout << "\"Brains... brains...\" \n\tYeah... it's a zombie..." << endl;
+        return;
+    } else if(str.compare("Ghost") == 0) {
+        cout << "A ghost appears from thin air, screeching and howling!" << endl;
+        return;
+    } else if(str.compare("Ghoul") == 0) {
+        cout << "A ghoul slurks through the halls..." << endl;
+        return;
+    } else if(str.compare("Skeleton") == 0) {
+        cout << "An inconspicuous pair of bones turns into an skeleton!" << endl;
+        return;
+    } else if(str.compare("Demon") == 0) {
+        cout << "A demon approaches, with an evil look on its face..." << endl;
+        return;
+    } else if(str.compare("Corrupt Knight") == 0) {
+        cout << "An evil looking knight unsheathes his sword!" << endl;
+        return;
+    } else { cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); } // ERROR MESSAGE!!!!
 }
 
 void battle(string e_name)
 {
     E.name = e_name;
 
-    name_print(E.name);
+    name_diff(E.name);
 
     printf("\n");
 
