@@ -26,4 +26,8 @@ Currently only supports Linux-based systems. I don't have a Windows or MacOS mac
 
 # Thanks!
 
+**supporting:**
+
+[![Support me at paypal.me](https://www.zahlungsverkehrsfragen.de/wp-content/uploads/2018/10/paypalme.png "Support me at paypal.me")](https://paypal.me/eoicle)
+
 -- [oicleevan](https://oicleevan.xyz)
