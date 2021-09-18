@@ -23,11 +23,12 @@ void clrscr()
 // Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
 unsigned int gen_rand(int number) {
     return rand() % number + 1;
-} 
+}
 
 vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon" };
 
 unsigned char input;
+bool has_completed = false;
 
 class Character
 {
@@ -67,10 +68,21 @@ void log_completion()
     ofstream logfile;
 
     logfile.open("LOGS.txt");
-    logfile << "Congratulations!" << endl <<
-                "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
-                "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.health << " after defeating all of the enemies!\n" <<
-                "\nI owe you my thanks for playing my game!\no7\n";
+
+    if(has_completed)
+    {
+        logfile << "Congratulations!\n" <<
+                    "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
+                    "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.health << " after defeating all of the enemies!\n" <<
+                    "\nI owe you my thanks for playing my game!\no7\n";
+    } else {
+        logfile << "Yikes..\n" << 
+        "Your character, " << Player.name << ", entered the dungeon looking for some enemies to kill and some treasure to find.\n" <<
+        "Unfortunately, the cave dwellers had other plans.\n" <<
+        "After defeating " << Player.enemies_defeated << " enemies, " << Player.name << " died!\n" <<
+        "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
+        "\nI owe you my thanks for playing my game!\no7\n";
+    }
     
     logfile.close();
 
@@ -100,7 +112,7 @@ void battle(string e_name)
 
         printf("\n");
 
-        switch (input) 
+        switch (input)
         {
             case '1': default:
             {
@@ -229,6 +241,8 @@ int main()
             << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
+
+
 
             sleep_for(milliseconds(3000));
 
