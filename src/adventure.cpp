@@ -157,7 +157,6 @@ void battle(string e_name)
     Player.enemies_defeated++;
 
     // give player exp
-
     int exp_gained = gen_rand(Player.exp_gain);
     Player.exp += exp_gained;
 
@@ -175,7 +174,6 @@ void battle(string e_name)
     }
 
     // return potion potential
-
     int chance_of_potion = gen_rand(3);
     if(chance_of_potion == 3)
     {
@@ -184,7 +182,6 @@ void battle(string e_name)
     }
 
     // make enemy more difficult
-
     E.max_health += 5;
     E.health = E.max_health;
     E.atk_dmg += 5;
