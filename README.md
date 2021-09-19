@@ -1,3 +1,4 @@
+<!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
 A text-based adventure game/dungeon crawler written in good ol' C++. Defeat enemies as you delve into a dungeon in search of treasure! 
@@ -27,6 +28,10 @@ To make the software, GNU make is required. Type `make` to compile the program. 
 Currently only supports Linux-based systems. I don't have a Windows or MacOS machine to test on, so if anyone wishes to port this, that would be great!
 
 # Thanks!
+
+**credits:**
+
+uses [libeo](src/libeo/README.md), my custom library that makes menial tasks less annoying.
 
 **supporting:**
 

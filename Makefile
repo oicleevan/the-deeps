@@ -1,2 +1,2 @@
 make:
-	c++ src/adventure.cpp -o bin/adventure
+	c++ src/adventure.cpp src/libeo/lib/libeo.a -o bin/adventure

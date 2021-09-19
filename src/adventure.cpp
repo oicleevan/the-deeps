@@ -10,21 +10,13 @@
 #include <chrono>
 #include <fstream>
 
+#include "libeo/lib/libeo.h"
+
 using namespace std;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 
-void clrscr()
-{
-    cout << "\033[2J\033[1;1H";
-    return;
-}
-
-// Put this here because I hate typing out the modulo every time. Actually not a horrible idea, might save for other projects too.
-unsigned int gen_rand(int number)
-{
-    return rand() % number + 1;
-}
+using namespace libeo;
 
 vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
@@ -92,7 +84,7 @@ void log_completion()
 void name_diff(string str)
 {
     if(str.compare("Zombie") == 0) {
-        cout << "\"Brains... brains...\" \n\tYeah... it's a zombie..." << endl;
+        cout << "\"Brains... brains...\" \n    Yeah... it's a zombie..." << endl;
         return;
     } else if(str.compare("Ghost") == 0) {
         cout << "A ghost appears from thin air, screeching and howling!" << endl;
