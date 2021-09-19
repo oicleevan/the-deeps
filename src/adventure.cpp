@@ -20,8 +20,6 @@ using namespace libeo;
 
 vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
-string os;
-
 unsigned char input;
 bool has_completed = false;
 
@@ -228,17 +226,9 @@ int main()
     clrscr();
     srand(time(0));
 
-    #if __linux__
-        os = "Linux";
-    #elif __APPLE__
-        os = "OSX";
-    #else
-        cout << "This os is not supported.";
-        exit(EXIT_FAILURE);
-    #endif
+    
 
-    if(os == "Linux")
-    {
+    #ifdef __linux__
         cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
         ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
         /  /\       \  \:\       /  /:/_               /  /:/\:\      /  /:/_       /  /:/_       /  /::\     /  /:/_   
@@ -250,9 +240,12 @@ int main()
         \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
         \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
                     \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )";
-    } else {
+    #elif __APPLE__
         cout << "THE DEEPS";
-    }
+    #else
+        cout << "OS not supported!";
+        exit(EXIT_FAILURE); 
+    #endif
 
     cout << "\nby oicleevan" << endl;
 
@@ -277,17 +270,19 @@ int main()
 
         if(Player.enemies_defeated == 8)
         {
-            if(os == "Linux")
-            {
+            #ifdef __linux__
                 cout << R"(                         ____                            _         _       _   _                 _ 
                             / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
                             | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
                             | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
                             \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
                                             |___/                                                     )";
-            } else {
-                cout << "Congratulations!"
-            }
+            #elif __APPLE__
+                cout << "Congratulations!";
+            #else
+                cout < "This os is not supported!";
+                exit(EXIT_FAILURE);
+            #endif
             cout << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
