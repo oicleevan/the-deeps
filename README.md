@@ -23,7 +23,7 @@ You can then launch it from a terminal with `./adventure_linux`. (Pre-release ca
 
 ## building from source
 
-To make the software, GNU make is required. Type `make` to compile the program. It places a binary in `bin/`.
+To make the software, GNU make and g++ is required. Type `make` to compile the program. It places a binary in `bin/`.
 
 Currently only supports Linux-based systems. I don't have a Windows or MacOS machine to test on, so if anyone wishes to port this, that would be great!
 
