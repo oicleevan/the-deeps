@@ -18,7 +18,7 @@ using std::chrono::milliseconds;
 
 using namespace libeo;
 
-vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
+vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
 unsigned char input;
 bool has_completed = false;
@@ -101,7 +101,9 @@ void name_diff(string str)
     } else if(str.compare("Corrupt Knight") == 0) {
         cout << "An evil looking knight unsheathes his sword!" << endl;
         return;
-    } else { cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); } // ERROR MESSAGE!!!!
+    } else {
+        cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE);
+    } // ERROR MESSAGE!!!!
 }
 
 void battle(string e_name)
@@ -225,8 +227,6 @@ int main()
 {
     clrscr();
     srand(time(0));
-
-    
 
     #ifdef __linux__
         cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
