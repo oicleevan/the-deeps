@@ -228,6 +228,7 @@ int main()
     clrscr();
     srand(time(0));
 
+    //MacOS does not support raw processing of text.
     #ifdef __linux__
         cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
         ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
@@ -270,6 +271,7 @@ int main()
 
         if(Player.enemies_defeated == 8)
         {
+            //MacOS does not support raw processing of text.
             #ifdef __linux__
                 cout << R"(                         ____                            _         _       _   _                 _ 
                             / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
@@ -283,6 +285,7 @@ int main()
                 cout < "This os is not supported!";
                 exit(EXIT_FAILURE);
             #endif
+
             cout << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
