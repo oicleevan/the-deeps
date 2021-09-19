@@ -15,7 +15,7 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
 
-You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x adventure_linux`. 
+You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x ./adventure_linux`. 
 
 You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
 
