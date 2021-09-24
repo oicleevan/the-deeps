@@ -112,7 +112,7 @@ void battle(string e_name)
 
     name_diff(E.name);
 
-    printf("\n");
+    new_line();
 
     while (E.health > 0)
     {
@@ -129,7 +129,7 @@ void battle(string e_name)
 
         cin >> input;
 
-        printf("\n");
+        new_line();
 
         switch (input)
         {
@@ -301,7 +301,7 @@ int main()
 
         cin >> input;
 
-        printf("\n");
+        new_line();
 
         if(input == '1')
         {

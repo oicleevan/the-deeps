@@ -14,4 +14,6 @@ namespace libeo
     {
         return std::rand() % number + 1;
     }
+
+    void new_line() { std::cout << std::endl; }
 }
