@@ -6,6 +6,6 @@ If this gets large enough and it is usable for multiple projects, I may post it 
 
 ## building
 
-i've provided a make to automate the build process. g++, gnu make, and ar are required. execute `make` in this directory to build it. a library archive is already included!
+i've provided a makefile to automate the build process. g++, gnu make, and ar are required. execute `make` in this directory to build it. a library archive is already included!
 
 -- [oicleevan](https://github.com/oicleevan)
