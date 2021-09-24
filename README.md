@@ -33,6 +33,8 @@ Currently only supports Linux-based systems. I don't have a Windows or MacOS mac
 
 uses [libeo](src/libeo/README.md), my custom library that makes menial tasks less annoying.
 
+released under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
+
 **supporting:**
 
 [![Support me at paypal.me](https://www.zahlungsverkehrsfragen.de/wp-content/uploads/2018/10/paypalme.png "Support me at paypal.me")](https://paypal.me/eoicle)
