@@ -1,2 +1,10 @@
+CC=g++
+CCFLAGS= -I${LIBSRCDIR} -no-pie
+
+BINDIR := bin
+SRCDIR := src
+LIBDIR := ${SRCDIR}/libeo/
+LIBSRCDIR := ${LIBDIR}lib
+
 make:
-	c++ src/adventure.cpp src/libeo/lib/libeo.a -o bin/adventure -Isrc/libeo/lib/
+	${CC} ${SRCDIR}/adventure.cpp ${LIBSRCDIR}/libeo.a -o ${BINDIR}/adventure ${CCFLAGS}
