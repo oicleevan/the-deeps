@@ -3,7 +3,7 @@
 
 A text-based adventure game/dungeon crawler written in good ol' C++. Defeat enemies as you delve into a dungeon in search of treasure! 
 
-### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Source Code](src)
+<p align=center>### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Source Code](src)</p>
 
 **RELEASE 2.0 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
 
