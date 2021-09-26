@@ -2,6 +2,8 @@
     adventure.cpp
     Main file for my text adventure.
     -- oicleevan
+    
+    current release: 2.1
 */
 
 #include <iostream>
@@ -81,36 +83,34 @@ void log_completion()
 }
 
 // Different text options differenciated based on what enemy is being confronted
-void name_diff(string str)
+string name_diff(string str)
 {
+    string out;
+
     if(str.compare("Zombie") == 0) {
-        cout << "\"Brains... brains...\" \n    Yeah... it's a zombie..." << endl;
-        return;
+        out = "\"Brains... brains...\" \n    Yeah... it's a zombie...";
     } else if(str.compare("Ghost") == 0) {
-        cout << "A ghost appears from thin air, screeching and howling!" << endl;
-        return;
+        out = "A ghost appears from thin air, screeching and howling!";
     } else if(str.compare("Ghoul") == 0) {
-        cout << "A ghoul slurks through the halls..." << endl;
-        return;
+        out = "A ghoul slurks through the halls...";
     } else if(str.compare("Skeleton") == 0) {
-        cout << "An inconspicuous pair of bones turns into an skeleton!" << endl;
-        return;
+        out = "An inconspicuous pair of bones turns into an skeleton!";
     } else if(str.compare("Demon") == 0) {
-        cout << "A demon approaches, with an evil look on its face..." << endl;
-        return;
+        out = "A demon approaches, with an evil look on its face...";
     } else if(str.compare("Corrupt Knight") == 0) {
-        cout << "An evil looking knight unsheathes his sword!" << endl;
-        return;
+        out = "An evil looking knight unsheathes his sword!";
     } else {
         cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE);
     } // ERROR MESSAGE!!!!
+
+    return out;
 }
 
 void battle(string e_name)
 {
     E.name = e_name;
 
-    name_diff(E.name);
+    cout << name_diff(E.name) << endl;
 
     new_line();
 
