@@ -27,7 +27,7 @@ You can then launch it from a terminal with `./adventure_linux`. (Pre-release ca
 
 To make the software, GNU make and g++ is required. You must also compile libeo first (see src/libeo).
 
-Type `make` to compile the program. It places a binary in the project root directory.
+Type `make` to compile the program. It places a binary as `bin/adventure`.
 
 Currently only supports Linux-based systems. I don't have a Windows or MacOS machine to test on, so if anyone wishes to port this, that would be great!
 

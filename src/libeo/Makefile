@@ -1,12 +1,16 @@
+CC := g++
+
 SRCDIR := src
+BUILDDIR := build
 
 libeo: compile archive
 
 compile:
-	g++ -c ${SRCDIR}/libeo.cpp -o ${SRCDIR}/libeo.o
+	mkdir -p ${BUILDDIR}
+	${CC} -c ${SRCDIR}/libeo.cpp -o ${BUILDDIR}/libeo.o
 
 archive:
-	ar rvs libeo.a ${SRCDIR}/libeo.o
+	ar rvs libeo.a ${BUILDDIR}/libeo.o
 
 clean:
-	rm ${SRCDIR}/libeo.o
+	rm -r ${BUILDDIR}

@@ -1,5 +1,6 @@
 .vscode/
-adventure
+build/
+bin/
 
 # no spoilers!
 LOGS.txt 
