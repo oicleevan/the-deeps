@@ -20,7 +20,7 @@ using std::chrono::milliseconds;
 
 using namespace libeo;
 
-vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
+vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
 unsigned char input;
 bool has_completed = false;
@@ -154,7 +154,13 @@ void battle(string e_name)
                 break;
             case '3':
               if(Player.potions > 0) {
-                Player.health = Player.max_health;
+                if(Player.health + 50 >= Player.max_health)
+                {
+                    Player.health += 50;
+                } else {
+                    Player.health = Player.max_health;
+                }
+
                 Player.potions--;
                 cout << "You used a potion and now have " << Player.health << " health." << endl <<
                 "You have " << Player.potions << " potions left.\n" << endl;
