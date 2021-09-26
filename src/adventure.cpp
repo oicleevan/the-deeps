@@ -20,7 +20,7 @@ using std::chrono::milliseconds;
 
 using namespace libeo;
 
-vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
+vector<string> enemies { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
 
 unsigned char input;
 bool has_completed = false;
@@ -78,6 +78,7 @@ void log_completion()
     }
     
     logfile.close();
+    cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
 
     return;
 }
@@ -183,6 +184,8 @@ void battle(string e_name)
         sleep_for(milliseconds(2500));
 
         cout << "Thanks for playing!" << endl;
+
+        log_completion();
         exit(EXIT_SUCCESS);
 
     }
@@ -315,7 +318,6 @@ int main()
     }
 
     log_completion();
-    cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
 
     sleep_for(milliseconds(3000));
 

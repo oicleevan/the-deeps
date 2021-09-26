@@ -1,5 +1,5 @@
 CC=g++
-CCFLAGS= -I${LIBSRCDIR} -no-pie
+CCFLAGS= -I${LIBSRCDIR} -std=c++11
 
 SRCDIR := src
 LIBDIR := ${SRCDIR}/libeo
