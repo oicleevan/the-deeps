@@ -15,15 +15,19 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
 
+### release files
+
 You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x ./adventure_linux`. 
 
 You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
 
-*A binary distribution is also included in the source code, at `bin/`. You can execute it in a terminal with `bin/adventure`.*
+*i've decided against including binaries in the repo because it bloats directory structure and i find it unnecessary. all release builds work.*
 
 ## building from source
 
-To make the software, GNU make and g++ is required. Type `make` to compile the program. It places a binary in `bin/`.
+To make the software, GNU make and g++ is required. You must also compile libeo first (see src/libeo).
+
+Type `make` to compile the program. It places a binary in the project root directory.
 
 Currently only supports Linux-based systems. I don't have a Windows or MacOS machine to test on, so if anyone wishes to port this, that would be great!
 
@@ -35,7 +39,7 @@ uses [libeo](src/libeo/README.md), my custom library that makes menial tasks les
 
 released under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
-**supporting:**
+**supporting me:**
 
 [![Support me at paypal.me](https://www.zahlungsverkehrsfragen.de/wp-content/uploads/2018/10/paypalme.png "Support me at paypal.me")](https://paypal.me/eoicle)
 

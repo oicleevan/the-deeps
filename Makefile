@@ -1,10 +1,9 @@
 CC=g++
 CCFLAGS= -I${LIBSRCDIR} -no-pie
 
-BINDIR := bin
 SRCDIR := src
 LIBDIR := ${SRCDIR}/libeo
-LIBSRCDIR := ${LIBDIR}/lib
+LIBSRCDIR := ${LIBDIR}/src
 
 make:
-	${CC} ${SRCDIR}/adventure.cpp ${LIBSRCDIR}/libeo.a -o ${BINDIR}/adventure ${CCFLAGS}
+	${CC} ${SRCDIR}/adventure.cpp ${LIBDIR}/libeo.a -o adventure ${CCFLAGS}

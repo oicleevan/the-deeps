@@ -1,10 +1,12 @@
+SRCDIR := src
+
 libeo: compile archive
 
 compile:
-	g++ -c lib/libeo.cpp -o lib/libeo.o
+	g++ -c ${SRCDIR}/libeo.cpp -o ${SRCDIR}/libeo.o
 
 archive:
-	ar rvs lib/libeo.a lib/libeo.o
+	ar rvs libeo.a ${SRCDIR}/libeo.o
 
 clean:
-	rm lib/libeo.o
+	rm ${SRCDIR}/libeo.o
