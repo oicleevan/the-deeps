@@ -35,7 +35,7 @@ Currently only supports Linux-based systems. I don't have a Windows or MacOS mac
 
 **credits:**
 
-uses [libeo](src/libeo/README.md), my custom library that makes menial tasks less annoying.
+uses [libeo](src/libeo), my custom library that makes menial tasks less annoying.
 
 released under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
