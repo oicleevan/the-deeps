@@ -17,9 +17,9 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ### release files
 
-You can download the `adventure_linux` file from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x ./adventure_linux`. 
+You can download the binary file for your respective operating system from [the release section](https://github.com/oicleevan/text-dungeon-adventure/releases/). Make it executable with `chmod +x ./adventure_{your os}`. 
 
-You can then launch it from a terminal with `./adventure_linux`. (Pre-release candidates do not include a binary, you must compile from source.)
+You can then launch it from a terminal with `./adventure_{your os}`. (Pre-release candidates do not include a binary, you must compile from source.)
 
 *i've decided against including binaries in the repo because it bloats directory structure and i find it unnecessary. all release builds work.*
 
