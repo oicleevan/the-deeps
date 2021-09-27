@@ -10,10 +10,7 @@ namespace libeo
         return;
     }
 
-    unsigned int gen_rand(int number)
-    {
-        return std::rand() % number + 1;
-    }
+    unsigned int gen_rand(int number) { return std::rand() % number + 1; }
 
     void new_line() { std::cout << std::endl; }
 }
