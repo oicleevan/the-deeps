@@ -1,9 +1,9 @@
 <!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
-A text-based adventure game/dungeon crawler written in good ol' C++. Defeat enemies as you delve into a dungeon in search of treasure! 
-
 ### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Source Code](src)
+
+A text-based adventure game/dungeon crawler written in good ol' C++. Defeat enemies as you delve into a dungeon in search of treasure! 
 
 **RELEASE 2.0 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
 
