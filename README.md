@@ -31,7 +31,7 @@ To make the software, GNU make and g++ is required. You must also compile libeo 
 
 Type `make` to compile the program. It places a binary as `bin/adventure`.
 
-Currently only supports UNIX-based systems. I don't have a Windows machine to test on, so if anyone wishes to port this, that would be great!
+Currently only supports Mac OS and GNU/Linux. I don't have a Windows machine to test on, so if anyone wishes to port this, that would be great!
 
 # Thanks!
 
