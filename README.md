@@ -3,13 +3,11 @@
 
 ### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Source Code](src)
 
-A text-based adventure game/dungeon crawler written in good ol' C++. Defeat enemies as you delve into a dungeon in search of treasure! 
-
-**RELEASE 2.0 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
+**RELEASE 2.1 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
 
 ## what is this game?
 
-This game is text-based, and runs in a terminal. You play as a character who delves into a dungeon, where ghastly enemies hope to stop you from finding the hidden treasure.
+This game is a text-based adventure game written in good ol' C++, and runs in a terminal. You play as a character who delves into a dungeon, where ghastly enemies hope to stop you from finding the hidden treasure.
 
 As you fight and defeat enemies, you grow stronger. But be weary, so do the enemies...
 
