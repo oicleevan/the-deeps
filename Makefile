@@ -7,6 +7,8 @@ LIBSRCDIR := ${LIBDIR}/src
 BUILDDIR := build
 BINDIR := bin
 
+TARGET := ${BINDIR}/adventure
+
 make: compile link
 
 compile:
@@ -15,7 +17,7 @@ compile:
 
 link:
 	mkdir -p ${BINDIR}
-	${CC} ${BUILDDIR}/adventure.o ${LIBDIR}/libeo.a -o ${BINDIR}/adventure
+	${CC} ${BUILDDIR}/adventure.o ${LIBDIR}/libeo.a -o ${TARGET}
 
 clean:
 	rm -r ${BUILDDIR}
