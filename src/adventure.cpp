@@ -111,21 +111,12 @@ string name_diff(string str)
 
 void present_info(string name, int health, int level, int exp, int enemies_defeated)
 {
-    // vector<string> message = {
-    //     "Your info:",
-    //     "    Name:" + name,
-    //     "    Level: " + level,
-    //     "    Exp Points: " + exp,
-    //     "    Health:" + health,
-    //     "    Enemies defeated: " + enemies_defeated
-    // };
-
     cout << "> Your info: " << endl 
-        << ">     Name: " << name << endl
-        << ">     Level: " << level << endl
-        << ">     EXP Points: " << exp << endl
-        << ">     Health: " << health << endl
-        << ">     Enemies defeated: " << enemies_defeated << endl;
+        << "    Name: " << name << endl
+        << "    Level: " << level << endl
+        << "    EXP Points: " << exp << endl
+        << "    Health: " << health << endl
+        << "    Enemies defeated: " << enemies_defeated << endl;
 
     return;
 }
