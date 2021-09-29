@@ -1,3 +1,9 @@
+/*
+    startmenu.cpp
+    menu system for the deeps
+    -- oicleevan
+*/
+
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -56,8 +62,7 @@ bool start_menu()
 
     cout << "\nWhat will you do?" << endl
         << "    1. Start game" << endl
-        << "    2. Quit\n" << endl
-        << "Input: ";
+        << "    2. Quit" << endl;
 
     c = getchar();
 

@@ -110,8 +110,6 @@ string name_diff(string str)
 
 void battle(string e_name)
 {
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-
     E.name = e_name;
 
     cout << name_diff(E.name) << endl;
@@ -121,6 +119,8 @@ void battle(string e_name)
     while (E.health > 0)
     {
         ATTACK:
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // clear c++ buffer
+
         cout << "Your health: " << Player.health << endl <<
         E.name << "'s health: " << E.health << endl << endl;
 
@@ -131,7 +131,7 @@ void battle(string e_name)
         "    2. Run" << endl <<
         "    3. Use potion (" << Player.potions << " available)" << endl;
 
-        input = getchar();
+        cin >> input;
 
         new_line();
 
@@ -248,7 +248,7 @@ int main()
     cout << "\nWhat is your name?: ";
     cin >> Player.name;
 
-    cout << "\nHello, " << Player.name << ". You are now venturing into a dungeon, against forces who are ready to fight you... " << endl;
+    cout << "Hello, " << Player.name << ". You are now venturing into a dungeon, against forces who are ready to fight you... " << endl;
 
     clrscr();
     srand(time(0));
@@ -292,7 +292,7 @@ int main()
         "    1. Continue deeper into the dungeon" << endl <<
         "    2. Exit" << endl;
 
-        input = getchar();
+        cin >> input;
 
         new_line();
 
@@ -304,6 +304,8 @@ int main()
 
             sleep_for(milliseconds(3000));
             break;
+        } else {
+            cout << "You decide to continue deeper into the dungeon..." << endl; 
         }
     }
 
@@ -311,7 +313,7 @@ int main()
 
     sleep_for(milliseconds(3000));
 
-    cout << "\nThanks for playing!" << endl;
+    cout << "Thanks for playing!" << endl;
 
     return 0;
 }
