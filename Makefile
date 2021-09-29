@@ -14,10 +14,11 @@ make: compile link
 compile:
 	mkdir -p ${BUILDDIR}
 	${CC} -c ${SRCDIR}/adventure.cpp -o ${BUILDDIR}/adventure.o ${CCFLAGS}
+	${CC} -c ${SRCDIR}/startmenu.cpp -o ${BUILDDIR}/startmenu.o ${CCFLAGS}
 
 link:
 	mkdir -p ${BINDIR}
-	${CC} ${BUILDDIR}/adventure.o ${LIBDIR}/libeo.a -o ${TARGET}
+	${CC} ${BUILDDIR}/adventure.o ${BUILDDIR}/startmenu.o ${LIBDIR}/libeo.a -o ${TARGET}
 
 clean:
 	rm -r ${BUILDDIR}

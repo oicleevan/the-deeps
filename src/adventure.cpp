@@ -13,6 +13,7 @@
 #include <fstream>
 
 #include "libeo.h"
+#include "startmenu.h"
 
 using namespace std;
 using std::this_thread::sleep_for;
@@ -101,14 +102,16 @@ string name_diff(string str)
     } else if(str.compare("Corrupt Knight") == 0) {
         out = "An evil looking knight unsheathes his sword!";
     } else {
-        cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE);
-    } // ERROR MESSAGE!!!!
+        cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); // ERROR MESSAGE!!!!
+    }
 
     return out;
 }
 
 void battle(string e_name)
 {
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
     E.name = e_name;
 
     cout << name_diff(E.name) << endl;
@@ -128,7 +131,7 @@ void battle(string e_name)
         "    2. Run" << endl <<
         "    3. Use potion (" << Player.potions << " available)" << endl;
 
-        cin >> input;
+        input = getchar();
 
         new_line();
 
@@ -234,32 +237,10 @@ void battle(string e_name)
 
 int main()
 {
-    clrscr();
-    srand(time(0));
-
-    //MacOS does not support raw processing of text.
-    #ifdef __linux__
-        cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
-      ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
-     /  /\       \  \:\       /  /:/_               /  /:/\:\      /  /:/_       /  /:/_       /  /::\     /  /:/_   
-    /  /:/        \__\:\     /  /:/ /\             /  /:/  \:\    /  /:/ /\     /  /:/ /\     /  /:/\:\   /  /:/ /\  
-   /  /:/     ___ /  /::\   /  /:/ /:/_           /__/:/ \__\:|  /  /:/ /:/_   /  /:/ /:/_   /  /:/ /:/  /  /:/ /::\ 
-  /  /::\    /__/\  /:/\:\ /__/:/ /:/ /\          \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/ /\ /__/:/ /:/  /__/:/ /:/\:\
- /__/:/\:\   \  \:\/:/__\/ \  \:\/:/ /:/           \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/ /:/ \  \:\/:/   \  \:\/:/~/:/
- \__\/  \:\   \  \::/       \  \::/ /:/             \  \:\/:/    \  \::/ /:/   \  \::/ /:/   \  \::/     \  \::/ /:/ 
-      \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
-       \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
-                 \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )";
-    #elif __APPLE__
-        cout << "THE DEEPS";
-    #else
-        cout << "OS not supported!";
-        exit(EXIT_FAILURE); 
-    #endif
-
-    cout << "\nby oicleevan" << endl;
-
-    sleep_for(milliseconds(3000));
+    if(start_menu() != true) {
+        cout << "Ok... exiting..." << endl;
+        exit(EXIT_SUCCESS);
+    }
 
     Player.health = 50;
     Player.max_health = Player.health;
@@ -268,6 +249,9 @@ int main()
     cin >> Player.name;
 
     cout << "\nHello, " << Player.name << ". You are now venturing into a dungeon, against forces who are ready to fight you... " << endl;
+
+    clrscr();
+    srand(time(0));
 
     while (true)
     {
@@ -308,7 +292,7 @@ int main()
         "    1. Continue deeper into the dungeon" << endl <<
         "    2. Exit" << endl;
 
-        cin >> input;
+        input = getchar();
 
         new_line();
 
