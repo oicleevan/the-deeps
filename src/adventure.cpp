@@ -71,15 +71,15 @@ void log_completion()
                     "\nI owe you my thanks for playing my game!\no7\n";
     } else {
         logfile << "Yikes..\n" << 
-        "Your character, " << Player.name << ", entered the dungeon looking for some enemies to kill and some treasure to find.\n" <<
-        "Unfortunately, the cave dwellers had other plans.\n" <<
-        "After defeating " << Player.enemies_defeated << " enemies, " << Player.name << " died!\n" <<
-        "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
-        "\nI owe you my thanks for playing my game!\no7\n";
+                    "Your character, " << Player.name << ", entered the dungeon looking for some enemies to kill and some treasure to find.\n" <<
+                    "Unfortunately, the cave dwellers had other plans.\n" <<
+                    "After defeating " << Player.enemies_defeated << " enemies, " << Player.name << " died!\n" <<
+                    "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
+                    "\nI owe you my thanks for playing my game!\no7\n";
     }
     
     logfile.close();
-    cout << "pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
+    cout << "> pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
 
     return;
 }
@@ -106,6 +106,17 @@ string name_diff(string str)
     }
 
     return out;
+}
+
+void present_info(string name, int health, int level, int enemies_defeated)
+{
+    cout << "Your info: " << endl 
+        << "    Name: " << name << endl
+        << "    Level: " << level << endl
+        << "\n    Health: " << health << endl
+        << "    Enemies defeated: " << enemies_defeated << endl;
+
+    return;
 }
 
 void battle(string e_name)
@@ -288,9 +299,11 @@ int main()
             break;
         }
 
+        SELECTION:
         cout << "\nWhat is next? Do you:" << endl <<
-        "    1. Continue deeper into the dungeon" << endl <<
-        "    2. Exit" << endl;
+            "    1. Continue deeper into the dungeon" << endl <<
+            "    2. Check your info" << endl << 
+            "    3. Exit" << endl;
 
         cin >> input;
 
@@ -300,6 +313,9 @@ int main()
         {
             cout << "You decide to continue deeper into the dungeon..." << endl;
         } else if(input == '2') {
+            present_info(Player.name, Player.health, Player.level, Player.enemies_defeated);
+            goto SELECTION;
+        } else if(input == '3') {
             cout << "You exit the dungeon, leaving your sword behind..." << endl;
 
             sleep_for(milliseconds(3000));
@@ -313,7 +329,7 @@ int main()
 
     sleep_for(milliseconds(3000));
 
-    cout << "Thanks for playing!" << endl;
+    cout << "> Thanks for playing!" << endl;
 
     return 0;
 }
