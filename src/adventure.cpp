@@ -11,6 +11,7 @@
 #include <thread>
 #include <chrono>
 #include <fstream>
+#include <string>
 
 #include "libeo.h"
 #include "startmenu.h"
@@ -108,13 +109,23 @@ string name_diff(string str)
     return out;
 }
 
-void present_info(string name, int health, int level, int enemies_defeated)
+void present_info(string name, int health, int level, int exp, int enemies_defeated)
 {
-    cout << "Your info: " << endl 
-        << "    Name: " << name << endl
-        << "    Level: " << level << endl
-        << "\n    Health: " << health << endl
-        << "    Enemies defeated: " << enemies_defeated << endl;
+    // vector<string> message = {
+    //     "Your info:",
+    //     "    Name:" + name,
+    //     "    Level: " + level,
+    //     "    Exp Points: " + exp,
+    //     "    Health:" + health,
+    //     "    Enemies defeated: " + enemies_defeated
+    // };
+
+    cout << "> Your info: " << endl 
+        << ">     Name: " << name << endl
+        << ">     Level: " << level << endl
+        << ">     EXP Points: " << exp << endl
+        << ">     Health: " << health << endl
+        << ">     Enemies defeated: " << enemies_defeated << endl;
 
     return;
 }
@@ -313,7 +324,7 @@ int main()
         {
             cout << "You decide to continue deeper into the dungeon..." << endl;
         } else if(input == '2') {
-            present_info(Player.name, Player.health, Player.level, Player.enemies_defeated);
+            present_info(Player.name, Player.health, Player.level, Player.exp, Player.enemies_defeated);
             goto SELECTION;
         } else if(input == '3') {
             cout << "You exit the dungeon, leaving your sword behind..." << endl;
