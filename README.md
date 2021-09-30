@@ -1,7 +1,7 @@
 <!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
-### [Download](https://gitlab.com/oicleevan/the-deeps/-/tags/2.1.1) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
+### [Download](https://gitlab.com/oicleevan/the-deeps/-/tags/2.1/) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
 
 **RELEASE 2.1 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
 

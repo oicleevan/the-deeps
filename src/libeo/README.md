@@ -8,4 +8,4 @@ If this gets large enough and it is usable for multiple projects, I may post it 
 
 i've provided a makefile to automate the build process. g++, gnu make, and ar are required. execute `make` in this directory to build it.
 
--- [oicleevan](https://github.com/oicleevan)
+-- [oicleevan](https://oicleevan.xyz)
