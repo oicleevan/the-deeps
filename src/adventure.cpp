@@ -331,7 +331,7 @@ int main()
 
     sleep_for(milliseconds(3000));
 
-    cout << "> Thanks for playing!" << endl;
+    cout << "\nThanks for playing!" << endl;
 
     return 0;
 }
