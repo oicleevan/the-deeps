@@ -1,9 +1,9 @@
 <!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
-### [Download](https://gitlab.com/oicleevan/the-deeps/-/releases/2.1) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
+### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
 
-**RELEASE 2.1 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
+**RELEASE 1.2 OUT NOW!**
 
 ## what is this game?
 
@@ -14,6 +14,10 @@ As you fight and defeat enemies, you grow stronger. But be weary, so do the enem
 Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
+
+### arch
+
+if you're on arch, the game is now on the aur. check it out at [the aur page (aur.archlinux.org)](https://aur.archlinux.org/packages/the-deeps/)
 
 ### release files
 
