@@ -266,7 +266,8 @@ int main()
     clrscr();
     srand(time(0));
 
-    while (true)
+    bool is_playing = true;
+    while (is_playing)
     {
         sleep_for(chrono::milliseconds(2500));
         clrscr();
@@ -311,19 +312,19 @@ int main()
 
         new_line();
 
-        if(input == '1')
+        switch (input)
         {
-            cout << "You decide to continue deeper into the dungeon..." << endl;
-        } else if(input == '2') {
-            present_info(Player.name, Player.health, Player.level, Player.exp, Player.enemies_defeated);
-            goto SELECTION;
-        } else if(input == '3') {
-            cout << "You exit the dungeon, leaving your sword behind..." << endl;
-
-            sleep_for(milliseconds(3000));
-            break;
-        } else {
-            cout << "You decide to continue deeper into the dungeon..." << endl; 
+            case '1': default:
+                cout << "You decide to continue deeper into the dungeon..." << endl;
+                break;
+            case '2':
+                present_info(Player.name, Player.health, Player.level, Player.exp, Player.enemies_defeated);
+                goto SELECTION;
+            case '3':
+                cout << "You exit the dungeon, leaving your sword behind..." << endl;
+                sleep_for(milliseconds(3000));
+                is_playing = false;
+                break;
         }
     }
 
