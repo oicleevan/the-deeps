@@ -24,4 +24,4 @@ link:
 	${CC} ${BUILDDIR}/adventure.o ${BUILDDIR}/startmenu.o ${LIBDIR}/libeo.a -o ${TARGET}
 
 clean:
-	rm -r ${BUILDDIR}
+	rm -r ${BUILDDIR} ${BINDIR}
