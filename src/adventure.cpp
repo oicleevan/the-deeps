@@ -2,8 +2,6 @@
     adventure.cpp
     Main file for my text adventure.
     -- oicleevan
-    
-    current release: 2.1
 */
 
 #include <iostream>
