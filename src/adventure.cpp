@@ -12,6 +12,7 @@
 #include <chrono>
 #include <fstream>
 #include <string>
+#include <regex>
 
 #include "libeo.h"
 #include "startmenu.h"
@@ -26,6 +27,7 @@ vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Sol
 
 u_char input;
 bool has_completed = false;
+int rand_e;
 
 typedef short Health;
 
@@ -92,22 +94,42 @@ string name_diff(string str)
 {
     string out;
 
-    if(str.compare("Zombie") == 0) {
-        out = "\"Brains... brains...\" \n    Yeah... it's a zombie...";
-    } else if(str.compare("Ghost") == 0) {
-        out = "A ghost appears from thin air, screeching and howling!";
-    } else if(str.compare("Ghoul") == 0) {
-        out = "A ghoul slurks through the halls...";
-    } else if(str.compare("Skeleton") == 0) {
-        out = "An inconspicuous pair of bones turns into an skeleton!";
-    } else if(str.compare("Demon") == 0) {
-        out = "A demon approaches, with an evil look on its face...";
-    } else if(str.compare("Soldier") == 0) {
-        out = "An evil looking soldier unsheathes his sword!";
-    } else if(str.compare("Giant") == 0) {
-        out = "A giant stands in your way, holding a large wooden club.";
-    } else {
-        cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); // ERROR MESSAGE!!!!
+    typedef enum { 
+        Zombie,
+        Ghost,
+        Ghoul,
+        Skeleton,
+        Demon,
+        Soldier,
+        Giant
+    } types;
+
+    switch(rand_e)
+    {
+        case Zombie:
+            out = "\"Brains... brains...\" \n    Yeah... it's a zombie...";
+            break;
+        case Ghost:
+            out = "A ghost appears from thin air, screeching and howling!";
+            break;
+        case Ghoul:
+            out = "A ghoul slurks through the halls...";
+            break;
+        case Skeleton:
+            out = "An inconspicuous pair of bones turns into an skeleton!";
+            break;
+        case Demon:
+            out = "A demon approaches, with an evil look on its face...";
+            break;
+        case Soldier:
+            out = "An evil looking soldier unsheathes his sword!";
+            break;
+        case Giant:
+            out = "A giant stands in your way, holding a large wooden club.";
+            break;
+        default:
+            cout << "You should probably look at this one, chief!\n";
+            exit(EXIT_FAILURE);
     }
 
     return out;
@@ -124,6 +146,8 @@ void present_info(string name, int health, int level, int exp, int enemies_defea
 
     return;
 }
+
+bool is_integer(const string s) { return regex_match(s, regex("[(-|+)|][0-9]+")); } 
 
 void battle(string e_name)
 {
@@ -229,8 +253,7 @@ void battle(string e_name)
     {
         Player.level++;
         Player.max_atk_pwr += 10;
-        Player.max_h += 5;
-        Player.cur_h += 5;
+        Player.max_h, Player.cur_h += 5;
         Player.exp -= 50;
         cout << "\nYou have leveled up!" << endl <<
         "You are now level " << Player.level << ", with " << Player.exp << " experience points." << endl;
@@ -245,21 +268,28 @@ void battle(string e_name)
     }
 
     // make enemy more difficult
-    E.max_h += 5;
+    E.max_h, E.atk_dmg += 5;
     E.cur_h = E.max_h;
-    E.atk_dmg += 5;
 
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     if(start_menu() != true) {
         cout << "Ok... exiting..." << endl;
         exit(EXIT_SUCCESS);
     }
 
-    Player.cur_h = 50;
+    if (argc > 1) {
+        
+        if(is_integer(argv[1]))
+        {
+            int p_health = stoi(argv[1]);
+            Player.cur_h = p_health;
+        } else { Player.cur_h = 50; }
+    } else { Player.cur_h = 50; } 
+    
     Player.max_h = Player.cur_h;
 
     cout << "\nWhat is your name?: ";
@@ -276,9 +306,9 @@ int main()
         sleep_for(chrono::milliseconds(2500));
         clrscr();
 
-        int rand_enemy = gen_rand(enemies.size());
+        rand_e = gen_rand(enemies.size());
 
-        battle(enemies[rand_enemy]);
+        battle(enemies[rand_e]);
 
         if(Player.enemies_defeated == 8)
         {

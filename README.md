@@ -21,7 +21,7 @@ You can download the binary file for your respective operating system from [the 
 
 You can then launch it from a terminal with `./adventure_{your os}`. (Pre-release candidates do not include a binary, you must compile from source.)
 
-*i've decided against including binaries in the repo because it bloats directory structure and i find it unnecessary. all release builds work.*
+*working on a wiki page on my [website](https://oicleevan.xyz). it'll be up eventually.*
 
 ## building from source
 
