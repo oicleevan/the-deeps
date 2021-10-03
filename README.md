@@ -3,7 +3,7 @@
 
 ### [Download](https://gitlab.com/oicleevan/the-deeps/-/releases/2.1) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
 
-**RELEASE 2.1 OUT NOW! TECHNICALLY AN ACTUAL THING NOW!**
+**RELEASE 1.2 OUT NOW!**
 
 ## what is this game?
 
