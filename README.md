@@ -15,6 +15,10 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ## how to play
 
+### arch
+
+if you're on arch, the game is now on the aur. check it out at [the aur page (aur.archlinux.org](https://aur.archlinux.org/packages/the-deeps/)
+
 ### release files
 
 You can download the binary file for your respective operating system from [the release tags section](https://gitlab.com/oicleevan/the-deeps/-/releases/). Make it executable with `chmod +x ./the-deeps_{your os}`. 
