@@ -24,8 +24,15 @@ using namespace libeo;
 vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Soldier", "Giant" };
 
 u_char input;
-bool has_completed = false;
 int rand_e;
+
+typedef enum {
+    Completed,
+    Died,
+    Exited
+} completions;
+
+short completion_status;
 
 typedef short Health;
 
@@ -66,19 +73,29 @@ void log_completion()
     ofstream logfile;
     logfile.open("LOGS.txt");
 
-    if(has_completed)
+
+    switch(completion_status)
     {
-        logfile << "Congratulations!\n" <<
-                    "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
-                    "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.cur_h << " after defeating all of the enemies!\n" <<
-                    "\nI owe you my thanks for playing my game!\no7\n";
-    } else {
-        logfile << "Yikes..\n" << 
-                    "Your character, " << Player.name << ", entered the dungeon looking for some enemies to kill and some treasure to find.\n" <<
-                    "Unfortunately, the cave dwellers had other plans.\n" <<
-                    "After defeating " << Player.enemies_defeated << " enemies, " << Player.name << " died!\n" <<
-                    "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
-                    "\nI owe you my thanks for playing my game!\no7\n";
+        case Completed:
+            logfile << "Congratulations!\n" <<
+                        "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
+                        "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.cur_h << " after defeating all of the enemies!\n" <<
+                        "\nI owe you my thanks for playing my game!\no7\n";
+            break;
+        case Died:
+            logfile << "Yikes..\n" << 
+                        "Your character, " << Player.name << ", entered the dungeon looking for some enemies to kill and some treasure to find.\n" <<
+                        "Unfortunately, the cave dwellers had other plans.\n" <<
+                        "After defeating " << Player.enemies_defeated << " enemies, " << Player.name << " died!\n" <<
+                        "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
+                        "\nI owe you my thanks for playing my game!\no7\n";
+            break;
+        case Exited:
+            logfile << "Your character, " << Player.name << ", entered the dungeon searching for treasure." << endl <<
+                        "After defeating" << Player.enemies_defeated << " enemies, they decided they had enough." << endl <<
+                        "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
+                        "\nI owe you my thanks for playing my game!\no7\n";
+            break;
     }
     
     logfile.close();
@@ -228,6 +245,7 @@ void battle(string e_name)
         cout << "You collapsed...";
         sleep_for(milliseconds(1500));
         cout << "you died!" << endl;
+        completion_status = Died;
 
         sleep_for(milliseconds(2500));
 
@@ -329,34 +347,40 @@ int main(int argc, char *argv[])
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
 
-            has_completed = true;
+            completion_status = Completed;
             sleep_for(milliseconds(3000));
             break;
         }
 
-        SELECTION:
-        cout << "\nWhat is next? Do you:" << endl <<
-            "    1. Continue deeper into the dungeon" << endl <<
-            "    2. Check your info" << endl << 
-            "    3. Exit" << endl;
+        input = NULL;
+        while(input != '1' && input != '3') {
 
-        cin >> input;
+            cout << "\nWhat is next? Do you:" << endl <<
+                "    1. Continue deeper into the dungeon" << endl <<
+                "    2. Check your info" << endl << 
+                "    3. Exit" << endl;
 
-        new_line();
+            cin >> input;
 
-        switch (input)
-        {
-            case '1': default:
-                cout << "You decide to continue deeper into the dungeon..." << endl;
-                break;
-            case '2':
-                present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
-                goto SELECTION;
-            case '3':
-                cout << "You exit the dungeon, leaving your sword behind..." << endl;
-                sleep_for(milliseconds(3000));
-                is_playing = false;
-                break;
+            new_line();
+
+            switch (input)
+            {
+                case '1':
+                    cout << "You decide to continue deeper into the dungeon..." << endl;
+                    break;
+                case '2':
+                    present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
+                    break;
+                case '3':
+                    cout << "You exit the dungeon, leaving your sword behind..." << endl;
+                    sleep_for(milliseconds(3000));
+                    is_playing = false;
+                    completion_status = Exited;
+                    break;
+                default:
+                    cout << "Please specify one of the specified options!" << endl;
+            }
         }
     }
 
