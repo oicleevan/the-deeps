@@ -22,27 +22,29 @@ using std::chrono::milliseconds;
 
 using namespace libeo;
 
-vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Corrupt Knight" };
+vector<string> enemies = { "Zombie", "Ghost", "Ghoul", "Skeleton", "Demon", "Soldier", "Giant" };
 
-unsigned char input;
+u_char input;
 bool has_completed = false;
+
+typedef short Health;
 
 class Character
 {
     public:
         string name; // player name
-        int max_health; // max possible health
-        int health; // current health
-        int level = 1; // experience level
+        Health max_h; // max possible health
+        Health cur_h; // current health
+        short level = 1; // experience level
         int lvl_amt = 50; // exp required to level up
         int exp = 0; // current exp
         int exp_gain = 60; // max exp gain after every victory
 
         int max_atk_pwr = 30; // max attack damage
 
-        int potions = 5;
+        short potions = 5;
 
-        int enemies_defeated = 0;
+        short enemies_defeated = 0;
 };
 
 class Enemy
@@ -50,8 +52,8 @@ class Enemy
     public:
         string name; // enemy name
 
-        int max_health = 35; // max health
-        int health = max_health; // current health
+        Health max_h = 35; // max health
+        Health cur_h = max_h; // current health
 
         int atk_dmg = 15; // max attack damage
 };
@@ -68,7 +70,7 @@ void log_completion()
     {
         logfile << "Congratulations!\n" <<
                     "Your character, " << Player.name << ", defeated leagues of enemies and claimed the treasure!\n" <<
-                    "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.health << " after defeating all of the enemies!\n" <<
+                    "They were level " << Player.level << ", with " << Player.exp << " exp points and a remaining health of " << Player.cur_h << " after defeating all of the enemies!\n" <<
                     "\nI owe you my thanks for playing my game!\no7\n";
     } else {
         logfile << "Yikes..\n" << 
@@ -100,8 +102,10 @@ string name_diff(string str)
         out = "An inconspicuous pair of bones turns into an skeleton!";
     } else if(str.compare("Demon") == 0) {
         out = "A demon approaches, with an evil look on its face...";
-    } else if(str.compare("Corrupt Knight") == 0) {
-        out = "An evil looking knight unsheathes his sword!";
+    } else if(str.compare("Soldier") == 0) {
+        out = "An evil looking soldier unsheathes his sword!";
+    } else if(str.compare("Giant") == 0) {
+        out = "A giant stands in your way, holding a large wooden club.";
     } else {
         cout << "You should probably look at this one, chief!\n"; exit(EXIT_FAILURE); // ERROR MESSAGE!!!!
     }
@@ -129,13 +133,13 @@ void battle(string e_name)
 
     new_line();
 
-    while (E.health > 0)
+    while (E.cur_h > 0)
     {
         ATTACK:
         cin.ignore(numeric_limits<streamsize>::max(),'\n'); // clear c++ buffer
 
-        cout << "Your health: " << Player.health << endl <<
-        E.name << "'s health: " << E.health << endl << endl;
+        cout << "Your health: " << Player.cur_h << endl <<
+        E.name << "'s health: " << E.cur_h << endl << endl;
 
         cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-\n" << endl;
 
@@ -153,7 +157,7 @@ void battle(string e_name)
             case '1': default:
             {
                 int atk_pwr = gen_rand(Player.max_atk_pwr);
-                E.health -= atk_pwr;
+                E.cur_h -= atk_pwr;
 
                 cout << "You attacked the " << E.name << " for " << atk_pwr << " damage." << endl;
 
@@ -170,15 +174,15 @@ void battle(string e_name)
                 break;
             case '3':
               if(Player.potions > 0) {
-                if(Player.health + 50 >= Player.max_health)
+                if(Player.cur_h + 50 >= Player.max_h)
                 {
-                    Player.health += 50;
+                    Player.cur_h += 50;
                 } else {
-                    Player.health = Player.max_health;
+                    Player.cur_h = Player.max_h;
                 }
 
                 Player.potions--;
-                cout << "You used a potion and now have " << Player.health << " health." << endl <<
+                cout << "You used a potion and now have " << Player.cur_h << " health." << endl <<
                 "You have " << Player.potions << " potions left.\n" << endl;
               } else {
                 cout << "You are out of potions! You cannot use any more.\n" << endl;
@@ -187,18 +191,18 @@ void battle(string e_name)
                 break;
         }
 
-        if(E.health >= 1)
+        if(E.cur_h >= 1)
         {
             int enemy_atk = gen_rand(E.atk_dmg);
-            Player.health -= enemy_atk;
+            Player.cur_h -= enemy_atk;
 
             cout << "The " << E.name << " attacked you for " << enemy_atk << " damage!\n" << endl;
         }
 
-        if(Player.health <= 0) break;
+        if(Player.cur_h <= 0) break;
     }
 
-    if(Player.health <= 0) {
+    if(Player.cur_h <= 0) {
         cout << "You collapsed...";
         sleep_for(milliseconds(1500));
         cout << "you died!" << endl;
@@ -225,8 +229,8 @@ void battle(string e_name)
     {
         Player.level++;
         Player.max_atk_pwr += 10;
-        Player.max_health += 5;
-        Player.health += 5;
+        Player.max_h += 5;
+        Player.cur_h += 5;
         Player.exp -= 50;
         cout << "\nYou have leveled up!" << endl <<
         "You are now level " << Player.level << ", with " << Player.exp << " experience points." << endl;
@@ -241,8 +245,8 @@ void battle(string e_name)
     }
 
     // make enemy more difficult
-    E.max_health += 5;
-    E.health = E.max_health;
+    E.max_h += 5;
+    E.cur_h = E.max_h;
     E.atk_dmg += 5;
 
     return;
@@ -255,8 +259,8 @@ int main()
         exit(EXIT_SUCCESS);
     }
 
-    Player.health = 50;
-    Player.max_health = Player.health;
+    Player.cur_h = 50;
+    Player.max_h = Player.cur_h;
 
     cout << "\nWhat is your name?: ";
     cin >> Player.name;
@@ -318,7 +322,7 @@ int main()
                 cout << "You decide to continue deeper into the dungeon..." << endl;
                 break;
             case '2':
-                present_info(Player.name, Player.health, Player.level, Player.exp, Player.enemies_defeated);
+                present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
                 goto SELECTION;
             case '3':
                 cout << "You exit the dungeon, leaving your sword behind..." << endl;
