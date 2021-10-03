@@ -1,9 +1,10 @@
 <!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
 
-### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Building](https://gitlab.com/oicleevan/the-deeps#building-from-source)
+***a text-based adventure game written in c++***
+### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Building](#building-from-source)
 
-**RELEASE 1.2 OUT NOW!**
+**RELEASE 1.2.1 OUT NOW!**
 
 ## what is this game?
 
@@ -17,7 +18,7 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ### release files
 
-You can download the binary file for your respective operating system from [the release tags section](https://gitlab.com/oicleevan/the-deeps/-/releases/). Make it executable with `chmod +x ./the-deeps_{your os}`. 
+You can download the binary file for your respective operating system from [the release tags section](https://github.com/oicleevan/the-deeps/releases/). Make it executable with `chmod +x ./the-deeps_{your os}`. 
 
 You can then launch it from a terminal with `./the-deeps_{your os}`. (Pre-release candidates do not include a binary, you must compile from source.)
 
