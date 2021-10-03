@@ -17,7 +17,7 @@ Use your tactics and skill to defeat these enemies and claim your prize!
 
 ### arch
 
-if you're on arch, the game is now on the aur. check it out at [the aur page (aur.archlinux.org](https://aur.archlinux.org/packages/the-deeps/)
+if you're on arch, the game is now on the aur. check it out at [the aur page (aur.archlinux.org)](https://aur.archlinux.org/packages/the-deeps/)
 
 ### release files
 
