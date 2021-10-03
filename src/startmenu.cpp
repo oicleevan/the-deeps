@@ -21,8 +21,12 @@ using namespace libeo;
 
 void title_screen()
 {
+    clrscr();
+
     //MacOS does not support raw processing of text.
     #ifdef __linux__
+        //Sets terminal size to 32 lines, 118 columns.
+        cout << "\e[8;32;118t";
         cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
       ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
      /  /\       \  \:\       /  /:/_               /  /:/\:\      /  /:/_       /  /:/_       /  /::\     /  /:/_   
@@ -34,10 +38,7 @@ void title_screen()
       \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
        \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
                  \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )";
-    
-    //Sets terminal size to 32 lines, 118 columns.
-    cout << "\e[8;32;118t";
-    clrscr();
+
     #elif __APPLE__
         cout << "THE DEEPS";
     #else
