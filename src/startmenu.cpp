@@ -34,6 +34,10 @@ void title_screen()
       \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
        \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
                  \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )";
+    
+    //Sets terminal size to 32 lines, 118 columns.
+    cout << "\e[8;32;118t";
+    clrscr();
     #elif __APPLE__
         cout << "THE DEEPS";
     #else
@@ -53,10 +57,6 @@ void title_screen()
 bool start_menu()
 {
     char c;
-
-    //Sets terminal size to 32 lines, 118 columns.
-    cout << "\e[8;32;118t";
-    clrscr();
 
     title_screen();
 
