@@ -22,15 +22,13 @@ You can download the binary file for your respective operating system from [the 
 
 You can then launch it from a terminal with `./the-deeps_{your os}`. (Pre-release candidates do not include a binary, you must compile from source.)
 
-*working on a wiki page on my [website](https://oicleevan.xyz). it'll be up eventually.*
-
 ## building from source
 
 To make the software, GNU make and g++ is required. You must also compile libeo first (see [src/libeo](src/libeo)).
 
 Type `make` to compile the program. It places a binary as `bin/the-deeps`.
 
-Currently only supports Mac OS and GNU/Linux. I don't have a Windows machine to test on, so if anyone wishes to port this, that would be great!
+The game currently only supports OSX and GNU/Linux. I don't have a Windows machine to test on, so if anyone wishes to port this, that would be great!
 
 # Thanks!
 
