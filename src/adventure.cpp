@@ -42,6 +42,7 @@ class Character
         string name; // player name
         Health max_h; // max possible health
         Health cur_h; // current health
+
         short level = 1; // experience level
         int lvl_amt = 50; // exp required to level up
         int exp = 0; // current exp
@@ -49,9 +50,9 @@ class Character
 
         int max_atk_pwr = 30; // max attack damage
 
-        short potions = 5;
+        short potions = 5; // amount of potion
 
-        short enemies_defeated = 0;
+        short enemies_defeated = 0; // enemies defeated during game.
 };
 
 class Enemy
