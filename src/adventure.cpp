@@ -92,7 +92,7 @@ void log_completion()
             break;
         case Exited:
             logfile << "Your character, " << Player.name << ", entered the dungeon searching for treasure." << endl <<
-                        "After defeating" << Player.enemies_defeated << " enemies, they decided they had enough." << endl <<
+                        "After defeating " << Player.enemies_defeated << " enemies, they decided they had enough." << endl <<
                         "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
                         "\nI owe you my thanks for playing my game!\no7\n";
             break;
