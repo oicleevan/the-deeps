@@ -23,12 +23,10 @@ void title_screen()
 {
     clrscr();
 
-    //MacOS does not support raw processing of text.
-    #ifdef __linux__
-        //Sets terminal size to 32 lines, 118 columns.
-        cout << "\e[8;32;118t";
+    //Sets terminal size to 32 lines, 118 columns.
+    cout << "\e[8;32;118t";
 
-        cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
+    cout << R"(                  ___           ___                   _____          ___           ___           ___         ___     
       ___        /__/\         /  /\                 /  /::\        /  /\         /  /\         /  /\       /  /\    
      /  /\       \  \:\       /  /:/_               /  /:/\:\      /  /:/_       /  /:/_       /  /::\     /  /:/_   
     /  /:/        \__\:\     /  /:/ /\             /  /:/  \:\    /  /:/ /\     /  /:/ /\     /  /:/\:\   /  /:/ /\  
@@ -39,12 +37,6 @@ void title_screen()
       \  \:\   \  \:\        \  \:\/:/               \  \::/      \  \:\/:/     \  \:\/:/     \  \:\      \__\/ /:/  
        \__\/    \  \:\        \  \::/                 \__\/        \  \::/       \  \::/       \  \:\       /__/:/   
                  \__\/         \__\/                                \__\/         \__\/         \__\/       \__\/    )";
-    #elif __APPLE__
-        cout << "THE DEEPS";
-    #else
-        cout << "OS not supported!";
-        exit(EXIT_FAILURE); 
-    #endif
 
     new_line();
 

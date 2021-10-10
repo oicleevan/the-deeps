@@ -73,7 +73,6 @@ void log_completion()
     ofstream logfile;
     logfile.open("LOGS.txt");
 
-
     switch(completion_status)
     {
         case Completed:
@@ -152,7 +151,7 @@ string name_diff(string str)
 
 void present_info(string name, int health, int level, int exp, int enemies_defeated)
 {
-    cout << "> Your info: " << endl 
+    cout << "Your info: " << endl 
         << "    Name: " << name << endl
         << "    Level: " << level << endl
         << "    EXP Points: " << exp << endl
@@ -330,22 +329,13 @@ int main(int argc, char *argv[])
 
         if(Player.enemies_defeated == 8)
         {
-            //MacOS does not support raw processing of text.
-            #ifdef __linux__
-                cout << R"(                         ____                            _         _       _   _                 _ 
-                            / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
-                            | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
-                            | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
-                            \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
-                                            |___/                                                     )";
-            #elif __APPLE__
-                cout << "Congratulations!";
-            #else
-                cout < "This os is not supported!";
-                exit(EXIT_FAILURE);
-            #endif
+            cout << R"(                         ____                            _         _       _   _                 _ 
+                        / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |
+                        | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __| |
+                        | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \_|
+                        \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___(_)
+                                        |___/                                                     )" << endl;
 
-            cout << endl;
             cout << "With the last enemy defeated, you have found your way to the treasure!" << endl;
             cout << "Congratulations for completing the game!" << endl;
 
@@ -372,6 +362,7 @@ int main(int argc, char *argv[])
                     cout << "You decide to continue deeper into the dungeon..." << endl;
                     break;
                 case '2':
+                    clrscr();
                     present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
                     break;
                 case '3':
