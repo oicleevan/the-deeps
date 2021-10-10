@@ -269,7 +269,8 @@ void battle(string e_name)
     {
         Player.level++;
         Player.max_atk_pwr += 10;
-        Player.max_h, Player.cur_h += 5;
+        Player.max_h += 5;
+        Player.cur_h += 5;
         Player.exp -= 50;
         cout << "\nYou have leveled up!" << endl <<
         "You are now level " << Player.level << ", with " << Player.exp << " experience points." << endl;
@@ -284,7 +285,8 @@ void battle(string e_name)
     }
 
     // make enemy more difficult
-    E.max_h, E.atk_dmg += 5;
+    E.max_h += 5;
+    E.atk_dmg += 5;
     E.cur_h = E.max_h;
 
     return;
