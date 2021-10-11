@@ -8,6 +8,8 @@ final boss
 
 different weapons
 
+multiplayer
+
 ## continuous
 
 bug fixes... 

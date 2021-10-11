@@ -162,7 +162,9 @@ void present_info(string name, int health, int level, int exp, int enemies_defea
     return;
 }
 
-bool is_integer(const string s) { return regex_match(s, regex("[(-|+)|][0-9]+")); } 
+bool is_integer(const string s) { 
+    return regex_match(s, regex("[(-|+)|][0-9]+")); 
+} 
 
 void battle(string e_name)
 {
@@ -300,13 +302,16 @@ int main(int argc, char *argv[])
     }
 
     if (argc > 1) {
-        
         if(is_integer(argv[1]))
         {
             int p_health = stoi(argv[1]);
             Player.cur_h = p_health;
-        } else { Player.cur_h = 50; }
-    } else { Player.cur_h = 50; } 
+        } else {
+            Player.cur_h = 50;
+        }
+    } else {
+        Player.cur_h = 50;
+    } 
     
     Player.max_h = Player.cur_h;
 
