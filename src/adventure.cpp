@@ -10,6 +10,7 @@
 #include <chrono>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <regex>
 
 #include "libeo.h"
@@ -92,7 +93,7 @@ void log_completion()
             break;
         case Exited:
             logfile << "Your character, " << Player.name << ", entered the dungeon searching for treasure." << endl <<
-                        "After defeating " << Player.enemies_defeated << " enemies, they decided they had enough." << endl <<
+                        "After defeating " << Player.enemies_defeated << " enemies, they decided they had enough, and quit." << endl <<
                         "They were level " << Player.level << ", with " << Player.exp << " exp points.\n" <<
                         "\nI owe you my thanks for playing my game!\no7\n";
             break;
@@ -150,16 +151,18 @@ string name_diff(string str)
     return out;
 }
 
-void present_info(string name, int health, int level, int exp, int enemies_defeated)
+string present_info(string name, int health, int level, int exp, int enemies_defeated)
 {
-    cout << "Your info: " << endl 
-        << "    Name: " << name << endl
-        << "    Level: " << level << endl
-        << "    EXP Points: " << exp << endl
-        << "    Health: " << health << endl
-        << "    Enemies defeated: " << enemies_defeated << endl;
+    ostringstream oss;
+    oss << "Your info:" << endl <<
+        "    Name: " << name << endl <<
+        "    Level: " << level << endl <<
+        "    Exp: " << exp << endl <<
+        "    Health: " << health << endl << 
+        "    Enemies defeated: " << enemies_defeated << endl;
 
-    return;
+    string out = oss.str();
+    return out;
 }
 
 bool is_integer(const string s) { 
@@ -177,7 +180,8 @@ void battle(string e_name)
     while (E.cur_h > 0)
     {
         ATTACK:
-        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // clear c++ buffer
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // clear cin buffer
+        cin.clear();
 
         cout << "Your health: " << Player.cur_h << endl <<
         E.name << "'s health: " << E.cur_h << endl << endl;
@@ -235,9 +239,13 @@ void battle(string e_name)
         if(E.cur_h >= 1)
         {
             int enemy_atk = gen_rand(E.atk_dmg);
-            Player.cur_h -= enemy_atk;
 
-            cout << "The " << E.name << " attacked you for " << enemy_atk << " damage!\n" << endl;
+            if(enemy_atk >= 1) {
+                Player.cur_h -= enemy_atk;
+                cout << "The " << E.name << " attacked you for " << enemy_atk << " damage!\n" << endl;
+            } else {
+                cout << "The " << E.name << " tried to attack you,\n    but missed!";
+            }
         }
 
         if(Player.cur_h <= 0) break;
@@ -369,7 +377,7 @@ int main(int argc, char *argv[])
                     break;
                 case '2':
                     clrscr();
-                    present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
+                    cout << present_info(Player.name, Player.cur_h, Player.level, Player.exp, Player.enemies_defeated);
                     break;
                 case '3':
                     cout << "You exit the dungeon, leaving your sword behind..." << endl;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <regex>
 
 #include "libeo.h"
 
