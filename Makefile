@@ -13,6 +13,7 @@ make: compile link
 
 install: make
 	cp ${TARGET} /usr/bin
+	@echo Installed.
 
 compile:
 	@mkdir -p ${BUILDDIR}
