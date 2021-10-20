@@ -40,35 +40,35 @@ typedef short Health;
 class Character
 {
     public:
-        string name; // player name
-        Health max_h; // max possible health
-        Health cur_h; // current health
+        string  name; // player name
+        Health  max_h; // max possible health
+        Health  cur_h; // current health
 
-        short level = 1; // experience level
-        int lvl_amt = 50; // exp required to level up
-        int exp = 0; // current exp
-        int exp_gain = 60; // max exp gain after every victory
+        short   level = 1; // experience level
+        int     lvl_amt = 50; // exp required to level up
+        int     exp = 0; // current exp
+        int     exp_gain = 60; // max exp gain after every victory
 
-        int max_atk_pwr = 30; // max attack damage
+        int     max_atk_pwr = 30; // max attack damage
 
-        short potions = 5; // amount of potion
+        short   potions = 5; // amount of potion
 
-        short enemies_defeated = 0; // enemies defeated during game.
+        short   enemies_defeated = 0; // enemies defeated during game.
 };
 
 class Enemy
 {
     public:
-        string name; // enemy name
+        string  name; // enemy name
 
-        Health max_h = 35; // max health
-        Health cur_h = max_h; // current health
+        Health  max_h = 35; // max health
+        Health  cur_h = max_h; // current health
 
-        int atk_dmg = 15; // max attack damage
+        int     atk_dmg = 15; // max attack damage
 };
 
-Character Player;
-Enemy E;
+Character   Player;
+Enemy       E;
 
 void log_completion()
 {
