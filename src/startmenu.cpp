@@ -49,7 +49,7 @@ void title_screen()
 
 bool start_menu()
 {
-    char c;
+    unsigned short input;
 
     title_screen();
 
@@ -57,13 +57,13 @@ bool start_menu()
         << "    1. Start game" << endl
         << "    2. Quit" << endl;
 
-    c = getchar();
+    cin >> input;
 
-    switch(c)
+    switch(input)
     {
-        case '1': default:
+        case 1: default:
             return true;
-        case '2':
+        case 2:
             return false;
     }
 
