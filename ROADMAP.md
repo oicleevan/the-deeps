@@ -2,14 +2,15 @@
 
 ## long-term
 
-windows port
+- windows port
+    - maybe switch build system to cmake for cross-platform?
 
-final boss
+- final boss
 
-different weapons
+- different weapons
 
-multiplayer
+- multiplayer (couch style)
 
 ## continuous
 
-bug fixes... 
+- bug fixes... 
