@@ -1,9 +1,8 @@
 <!-- such a cool logo, huh -->
 ![THE DEEPS](https://i.ibb.co/kJjV5jH/2021-09-18-16-22.png "THE DEEPS")
-
 ***a text-based adventure game written in c++***
-### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Building](#building-from-source)
 
+### [Download](https://github.com/oicleevan/the-deeps/releases/latest) | [Building](#building-from-source)
 **RELEASE 1.2.1 OUT NOW!**
 
 ## what is this game?
@@ -14,13 +13,28 @@ As you fight and defeat enemies, you grow stronger. But be weary, so do the enem
 
 Use your tactics and skill to defeat these enemies and claim your prize!
 
-## how to play
+## installing from release files
 
-### release files
+### gnu/linux
 
-You can download the binary file for your respective operating system from [the release tags section](https://github.com/oicleevan/the-deeps/releases/). Make it executable with `chmod +x ./the-deeps_{your os}`. 
+Download the latest edition of the Linux release [here](https://github.com/oicleevan/the-deeps/releases/download/1.2.1/the-deeps_linux).
 
-You can then launch it from a terminal with `./the-deeps_{your os}`. (Pre-release candidates do not include a binary, you must compile from source.)
+Make it executable with `chmod +x the-deeps_linux` (in a terminal, from the directory containing the file).
+
+Launch with `./the-deeps_linux`.
+
+
+### mac os
+
+Download the latest edition of the mac os release [here](https://github.com/oicleevan/the-deeps/releases/download/1.2.1/the-deeps_osx).
+
+Make it executable with `chmod +x the-deeps_osx` (in a terminal, from the directory containing the file).
+
+Launch with `./the-deeps_osx`.
+
+### windows
+
+There is currently no native way to run this game on Windows, unless you hack something up to compile yourself. That being said, the best way to run the game on Windows would be running the Linux release [through WSL2](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 ## building from source
 
@@ -28,18 +42,18 @@ To make the software, GNU make and g++ is required. You must also compile libeo 
 
 Type `make` to compile the program. It places a binary as `bin/the-deeps`.
 
-The game currently only supports OSX and GNU/Linux. I don't have a Windows machine to test on, so if anyone wishes to port this, that would be great!
-
 # Thanks!
 
 **credits:**
 
-uses [libeo](src/libeo), my custom library that makes menial tasks less annoying.
+- uses [libeo](src/libeo/README.md), my custom library that makes menial tasks less annoying.
 
-released under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
+- released under the good ol' [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 **supporting me:**
 
 [![Support me at paypal.me](https://www.zahlungsverkehrsfragen.de/wp-content/uploads/2018/10/paypalme.png "Support me at paypal.me")](https://paypal.me/eoicle)
+
+<sub>a boy can dream, right?</sub>
 
 -- [oicleevan](https://oicleevan.xyz)
