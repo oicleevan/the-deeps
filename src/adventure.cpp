@@ -195,7 +195,7 @@ void battle(string e_name)
 
         cin >> input;
 
-        new_line();
+        clrscr();
 
         switch (input)
         {
@@ -269,6 +269,8 @@ void battle(string e_name)
     cout << "The " << E.name << " died." << endl;
     Player.enemies_defeated++;
 
+    new_line();
+
     // give player exp
     int exp_gained = gen_rand(Player.exp_gain);
     Player.exp += exp_gained;
@@ -286,7 +288,7 @@ void battle(string e_name)
         "You are now level " << Player.level << ", with " << Player.exp << " experience points." << endl;
     }
 
-    // return potion potential
+    // give potion if warranted
     int chance_of_potion = gen_rand(3);
     if(chance_of_potion == 3)
     {
