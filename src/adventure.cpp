@@ -274,7 +274,7 @@ void battle(string e_name)
 
     cout << "You gained " << exp_gained << " experience points. You now have " << Player.exp << " exp." << endl;
 
-    if(Player.exp >= Player.lvl_amt)
+    while(Player.exp >= Player.lvl_amt)
     {
         Player.level++;
         Player.max_atk_pwr += 10;
@@ -286,7 +286,7 @@ void battle(string e_name)
     }
 
     // give potion if warranted
-    int chance_of_potion = gen_rand(3);
+    int chance_of_potion = gen_rand(4);
     if(chance_of_potion == 3)
     {
         Player.potions++;
