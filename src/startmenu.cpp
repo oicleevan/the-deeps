@@ -56,7 +56,6 @@ bool start_menu()
     cout << "\nWhat will you do?" << endl
         << "    1. Start game" << endl
         << "    2. Quit" << endl;
-
     cin >> input;
 
     switch(input)
@@ -66,6 +65,5 @@ bool start_menu()
         case 2:
             return false;
     }
-
     return true;
 }

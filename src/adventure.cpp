@@ -98,10 +98,8 @@ void log_completion()
                         "\nI owe you my thanks for playing my game!\no7\n";
             break;
     }
-    
     logfile.close();
     cout << "> pssst... a hiddle file has been placed somewhere close to this game... it has something special for you!" << endl;
-
     return;
 }
 
@@ -147,7 +145,6 @@ string name_diff(string str)
             cout << "You should probably look at this one, chief!\n";
             exit(EXIT_FAILURE);
     }
-
     return out;
 }
 
@@ -322,12 +319,10 @@ int main(int argc, char *argv[])
     } else {
         Player.cur_h = 50;
     } 
-    
     Player.max_h = Player.cur_h;
 
     cout << "\nWhat is your name?: ";
     cin >> Player.name;
-
     cout << "Hello, " << Player.name << ". You are now venturing into a dungeon, against forces who are ready to fight you... " << endl;
 
     clrscr();
@@ -340,7 +335,6 @@ int main(int argc, char *argv[])
         clrscr();
 
         rand_e = gen_rand(enemies.size());
-
         battle(enemies[rand_e]);
 
         if(Player.enemies_defeated == 8)
@@ -394,9 +388,7 @@ int main(int argc, char *argv[])
     }
 
     log_completion();
-
     sleep_for(milliseconds(3000));
-
     cout << "\nThanks for playing!" << endl;
 
     return 0;
