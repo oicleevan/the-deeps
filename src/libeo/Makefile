@@ -1,4 +1,4 @@
-CC := g++
+CC := clang++
 
 SRCDIR := src
 BUILDDIR := build

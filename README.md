@@ -38,7 +38,7 @@ There is currently no native way to run this game on Windows, unless you hack so
 
 ## building from source
 
-To make the software, GNU make and g++ is required. You must also compile libeo first (see [src/libeo](src/libeo)).
+To make the software, GNU make and a c++ compiler (i use clang) is required. You must also compile libeo first (see [src/libeo](src/libeo)).
 
 Type `make` to compile the program. It places a binary as `bin/the-deeps`.
 

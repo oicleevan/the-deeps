@@ -1,4 +1,4 @@
-CC=g++
+CC=clang++
 CCFLAGS= -I${LIBSRCDIR} -std=c++11
 
 SRCDIR := src
